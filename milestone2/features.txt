@@ -1,0 +1,26 @@
+Compilation and execution instructions:
+
+1) flex newlexer.l
+2) bison -d newparser.y 
+3) g++ newparser.tab.c -o newparser
+4) ./newparser test_file.py
+
+
+
+a) In my code, I have done semantic analysis(type checking) and it creates symbol table for global and function level scope, with its nesting level no(as shown in some testcases' outputs). Also, it is printing possible errors present in the testcase.
+It is not doing semantic checks for classes although it successfully parses code snippets having classes, doesn't type check for str.
+
+
+Symbol Table entry is printed in following way:
+
+LEXEME: TOKEN_NAME  TYPE  OFFSET  SCOPE_NAME  LINE_NUMBER  NUMBER_OF_ARGUMENTS
+
+
+TYPE ---> type of identifiers & return type of functions
+NUMBER_OF_ARGUMENTS ---> -1 for identifiers
+
+
+
+Some features that my code isn't supporting(have removed some features from Grammar to make it easier, so will give syntax erros on those features):
+1) lists and arrays
+2) some operands like or, and, not, <<, >> .
